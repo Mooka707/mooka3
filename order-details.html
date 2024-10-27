@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="styles.css"> <!-- تأكد من ربط ملف CSS الخاص بك -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #1B1D2F; /* خلفية داكنة */
+            color: #FFFFFF; /* نص أبيض */
+        }
+
+        header {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .order-details {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #444;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .total {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .product-image {
+            display: block;
+            max-width: 100%;
+            margin: 10px auto;
+            border-radius: 5px;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #6C5CE7; /* لون الزر */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #5a47d2; /* لون الزر عند التمرير */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Order Confirmation</h1>
+        <p>Thank you for your order!</p>
+    </header>
+
+    <!-- Order Details Section -->
+    <section class="order-details">
+        <h2>Your Order Details</h2>
+        
+        <div class="detail-item">
+            <span>Customer Name:</span>
+            <span id="customer-name">John Doe</span> <!-- استبدل باسم العميل -->
+        </div>
+        <div class="detail-item">
+            <span>Product Name:</span>
+            <span id="product-name">Sample Product</span> <!-- استبدل باسم المنتج -->
+        </div>
+        <div class="detail-item">
+            <span>Quantity:</span>
+            <span id="quantity">2</span> <!-- استبدل بالعدد -->
+        </div>
+        <div class="detail-item">
+            <span>Price per Item:</span>
+            <span id="price">20.00</span> <!-- استبدل بالسعر -->
+        </div>
+        <div class="detail-item total">
+            <span>Total Cost:</span>
+            <span id="total-cost">40.00</span> <!-- اجمع التكلفة هنا -->
+        </div>
+
+        <img src="product-image.jpg" alt="Product Image" class="product-image"> <!-- صورة المنتج -->
+        
+        <button onclick="window.location.href='index.html'">Return to Home</button> <!-- زر العودة إلى الصفحة الرئيسية -->
+    </section>
+
+    <script>
+        // حساب التكلفة الإجمالية
+        const quantity = 2; // العدد
+        const pricePerItem = 20.00; // السعر لكل عنصر
+        const totalCost = quantity * pricePerItem;
+
+        // تحديث القيمة في الصفحة
+        document.getElementById('total-cost').innerText = totalCost.toFixed(2);
+    </script>
+</body>
+</html>

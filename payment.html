@@ -1,0 +1,203 @@
+<!-- صفحة إتمام الدفع -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Payment</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #eaeaea;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .payment-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #6C5CE7;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin: 20px 0 10px;
+            color: #333;
+        }
+
+        #paymentDetails {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+            text-align: left;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        label {
+            margin: 10px 0;
+            display: inline-block;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 5px 0 20px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #6C5CE7;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #5a4fcf;
+            transform: scale(1.05);
+        }
+
+        .thank-you-message {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            animation: fadeIn 0.5s;
+        }
+
+        .emoji {
+            font-size: 36px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .upload-instructions {
+            background: #eaeaea;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="payment-container">
+        <h1>Complete Your Payment</h1>
+        <div id="paymentDetails"></div>
+        
+        <div class="upload-instructions">
+            <label for="screenshot">Upload Payment Confirmation Screenshot:</label>
+            <p>Please upload the screenshot of your payment confirmation here.</p>
+            <input type="file" id="screenshot" accept="image/*">
+            <button id="submitScreenshot">Submit Screenshot</button>
+        </div>
+        
+        <div class="thank-you-message" id="thankYouMessage">
+            <h2>Thank You! 🎉</h2>
+            <p>Your payment has been confirmed. We will review your order and confirm it as soon as possible.</p>
+            <p class="emoji">😊</p>
+        </div>
+
+        <button style="margin-top: 20px;">Back to Order</button>
+        
+        
+        <div class="footer">
+            &copy; 2024 Your Company. All rights reserved.
+        </div>
+    </div>
+
+    <script>
+        // جلب طريقة الدفع من localStorage
+        const selectedPaymentMethod = localStorage.getItem('selectedPaymentMethod');
+        const paymentDetails = document.getElementById('paymentDetails');
+
+        // تحديد المحتوى بناءً على طريقة الدفع
+        if (selectedPaymentMethod === 'creditCard') {
+            paymentDetails.innerHTML = `
+                <h2>Pay with Credit Card</h2>
+                <label>Card Number:</label>
+                <input type="text" placeholder="Enter your card number" required>
+                <label>Expiry Date:</label>
+                <input type="text" placeholder="MM/YY" required>
+                <label>CVV:</label>
+                <input type="text" placeholder="CVV" required>
+                <button>Submit Payment</button>
+            `;
+        } else if (selectedPaymentMethod === 'fawry') {
+            paymentDetails.innerHTML = `
+                <h2>Pay with Fawry</h2>
+                <p>Please go to the nearest Fawry machine and use the following code:</p>
+                <p><strong>123-456-789</strong></p>
+            `;
+        } else if (selectedPaymentMethod === 'vodafoneCash') {
+            paymentDetails.innerHTML = `
+                <h2>Pay with Vodafone Cash</h2>
+                <p>Send the payment to this number:</p>
+                <p><strong>+20 123 456 789</strong></p>
+            `;
+        }
+
+        // دالة إرسال صورة التأكيد
+        document.getElementById('submitScreenshot').addEventListener('click', function() {
+            const screenshotInput = document.getElementById('screenshot');
+            if (screenshotInput.files.length > 0) {
+                // هنا يمكنك إضافة الكود الخاص برفع الصورة إلى السيرفر إذا كان متاحًا
+                // لإظهار الرسالة بعد رفع الصورة
+                document.getElementById('thankYouMessage').style.display = 'block';
+            } else {
+                alert('Please upload a screenshot of your payment confirmation.');
+            }
+        });
+
+        // دالة العودة إلى صفحة الطلب
+        document.querySelector('button[onclick="goBack()"]').addEventListener('click', goBack);
+
+        function goBack() {
+            window.location.href = 'order-details.html';
+        }
+    </script>
+</body>
+</html>

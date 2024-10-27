@@ -1,0 +1,131 @@
+/* إعدادات عامة */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #1c1c1e; /* خلفية داكنة */
+    color: #e1e1e1; /* لون النص الفاتح */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* لتوسيع العمود لأعلى وأسفل */
+    height: 100vh; /* جعل ارتفاع الجسم 100% من الشاشة */
+    padding: 20px;
+}
+
+/* العنوان */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #f0f0f5;
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+}
+
+header p {
+    color: #bbb;
+}
+
+/* نموذج تسجيل الدخول */
+.login-form {
+    background: rgba(40, 40, 40, 0.9); /* لون داكن نصف شفاف */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5); /* ظل مضيء */
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.login-form label {
+    font-weight: bold;
+    color: #00ffcc;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #666;
+    border-radius: 4px;
+    outline: none;
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 0 5px rgba(0, 255, 204, 0.4); /* ظل مضيء صغير */
+    transition: all 0.3s ease;
+}
+
+.login-form input:focus {
+    border-color: #00ffcc;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.5); /* زيادة الإضاءة */
+}
+
+/* زر تسجيل الدخول */
+.login-form button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background: linear-gradient(45deg, #00ffcc, #0099ff);
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+}
+
+.login-form button:hover {
+    background: linear-gradient(45deg, #0099ff, #00ffcc);
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.8); /* تأثير إضاءة أقوى */
+}
+
+/* نص footer */
+.footer-text {
+    text-align: center;
+    color: #bbb;
+    margin-top: 15px;
+}
+
+/* حركة fadeIn */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* تحسين التوافق على الأجهزة الصغيرة */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    .login-form {
+        width: 90%;
+    }
+}
+
+/* تحسين التوافق على الأجهزة اللوحية */
+@media (min-width: 600px) and (max-width: 768px) {
+    header h1 {
+        font-size: 2.2em;
+    }
+
+    .login-form {
+        width: 90%;
+    }
+}

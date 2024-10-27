@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #1B1D2F; /* خلفية داكنة */
+            color: #FFFFFF; /* نص أبيض */
+            text-align: center; /* محاذاة النص في المنتصف */
+        }
+
+        /* Header Styles */
+        header {
+            margin-bottom: 20px; /* مسافة أسفل الرأس */
+        }
+
+        /* Styles for the navigation buttons */
+        .nav-buttons {
+            display: flex; /* استخدام flexbox لتوزيع الأزرار */
+            justify-content: center; /* محاذاة الأزرار في المنتصف */
+            gap: 15px; /* مسافة بين الأزرار */
+            margin-bottom: 30px; /* مسافة أسفل الأزرار */
+        }
+
+        .nav-button {
+            background-color: #6C5CE7; /* أزرق فاتح */
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none; /* إزالة الحدود */
+            cursor: pointer; /* تغيير المؤشر عند التمرير فوق الزر */
+            transition: background-color 0.3s; /* تأثير الانتقال */
+        }
+
+        .nav-button:hover {
+            background-color: #5A4BC7; /* تغيير اللون عند التمرير */
+        }
+
+        /* Login Form Styles */
+        .login-form {
+            display: inline-block; /* جعل النموذج يكون في المنتصف */
+            text-align: left; /* محاذاة النص للنموذج إلى اليسار */
+            background: #333; /* لون خلفية النموذج */
+            padding: 20px;
+            border-radius: 8px; /* زوايا مدورة للنموذج */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* ظل خفيف للنموذج */
+        }
+
+        /* Input Styles */
+        input {
+            width: 100%; /* جعل عرض المدخلات 100% */
+            padding: 10px;
+            margin: 10px 0; /* هوامش أعلى وأسفل */
+            border-radius: 5px; /* زوايا مدورة */
+            border: 1px solid #ddd; /* حدود خفيفة */
+        }
+
+        /* Button Styles */
+        #login-btn {
+            background: #6C5CE7; /* أزرق فاتح */
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none; /* إزالة الحدود */
+            cursor: pointer; /* تغيير المؤشر عند التمرير فوق الزر */
+            transition: background-color 0.3s; /* تأثير الانتقال */
+        }
+
+        #login-btn:hover {
+            background: #5A4BC7; /* تغيير اللون عند التمرير */
+        }
+
+        /* Footer Text Styles */
+        .footer-text {
+            margin-top: 20px; /* مسافة أعلى الفقرة */
+        }
+
+        a {
+            color: #ffcc00; /* لون الرابط */
+            text-decoration: none; /* إزالة الخط السفلي */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <button class="nav-button" onclick="window.location.href='index.html'">Home</button>
+        <button class="nav-button" onclick="window.location.href='signup.html'">Sign Up</button>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <h1>Login to Your Account</h1>
+        <p>Access your virtual reality platform with your credentials.</p>
+    </header>
+
+    <!-- Login Form -->
+    <div class="login-form">
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+
+        <button type="submit" id="login-btn">Login</button>
+
+        <p class="footer-text">Don't have an account? <a href="signup.html">Sign up</a></p>
+    </div>
+
+    <script>
+        document.getElementById('login-btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            alert('Login button clicked!'); // يمكنك إضافة وظيفة تسجيل الدخول هنا
+        });
+    </script>
+</body>
+</html>

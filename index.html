@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR Products</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* تنسيقات شريط التنقل */
+        nav {
+            background-color: #333;
+            padding: 0px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0px 11px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffcc00;
+        }
+
+        .cart-btn {
+            font-size: 24px;
+            color: white;
+            margin-left: 30px;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .cart-btn:active {
+            transform: translateX(5px);
+        }
+
+        /* تنسيق زر البحث */
+        .search-btn {
+            font-size: 24px;
+            color: white;
+            transition: color 0.3s;
+            margin-right: 10px;
+        }
+
+        .search-btn:hover {
+            color: #ffcc00;
+        }
+
+        .search-btn:active {
+            transform: scale(1.1);
+        }
+
+        /* تنسيقات شريط البحث */
+        .search-bar-container {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .search-bar {
+            background-color: white;
+            border-radius: 4px;
+            padding: 5px 10px;
+            border: none;
+            outline: none;
+            width: 0;
+            transition: width 0.4s ease;
+            opacity: 0;
+            margin-left: 10px;
+        }
+
+        .search-bar.open {
+            width: 200px;
+            opacity: 1;
+        }
+
+        /* تنسيقات النجوم */
+        .stars {
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+            margin-right: auto; /* لضبطها في المنتصف مائلًا قليلاً إلى اليسار */
+        }
+
+        .stars i {
+            color: #ffcc00;
+            font-size: 20px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" class="login-btn">Login</a></li>
+                <li style="position: relative;">
+                    <a href="checkout.html" class="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- النجوم في المنتصف -->
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+
+            <!-- زر البحث مع شريط البحث في يمين الشريط -->
+            <div class="search-bar-container">
+                <a href="#search" class="search-btn" onclick="toggleSearchBar(event)">
+                    <i class="fas fa-search"></i>
+                </a>
+                <input type="text" id="searchBar" class="search-bar" placeholder="Search...">
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        // دالة لتبديل حالة ظهور شريط البحث
+        function toggleSearchBar(event) {
+            event.preventDefault();
+            const searchBar = document.getElementById('searchBar');
+            searchBar.classList.toggle('open');
+            searchBar.focus();
+
+            // إضافة مستمع للنقر في أي مكان لإغلاق شريط البحث
+            document.addEventListener('click', function handleClickOutside(event) {
+                if (!event.target.closest('.search-bar-container')) {
+                    searchBar.classList.remove('open');
+                    document.removeEventListener('click', handleClickOutside);
+                }
+            });
+        }
+    </script>
+</body>
+
+    <script>
+        // دالة لتبديل حالة ظهور شريط البحث
+        function toggleSearchBar(event) {
+            event.preventDefault();
+            const searchBar = document.getElementById('searchBar');
+            searchBar.classList.toggle('open');
+            searchBar.focus();
+
+            // إضافة مستمع للنقر في أي مكان لإغلاق شريط البحث
+            document.addEventListener('click', function handleClickOutside(event) {
+                if (!event.target.closest('.search-bar-container')) {
+                    searchBar.classList.remove('open');
+                    document.removeEventListener('click', handleClickOutside);
+                }
+            });
+        }
+    </script>
+</body>
+    <script>
+        // دالة لتبديل حالة ظهور شريط البحث
+        function toggleSearchBar(event) {
+            event.preventDefault();
+            const searchBar = document.getElementById('searchBar');
+            searchBar.classList.toggle('open');
+            searchBar.focus();
+
+            // إضافة مستمع للنقر في أي مكان لإغلاق شريط البحث
+            document.addEventListener('click', function handleClickOutside(event) {
+                if (!event.target.closest('.search-bar-container')) {
+                    searchBar.classList.remove('open');
+                    document.removeEventListener('click', handleClickOutside);
+                }
+            });
+        }
+    </script>
+</body>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <img src="so3.jpg" alt="Welcome Image">
+        <div class="text">
+            <h1>Welcome to Our Platform</h1>
+            <p>We provide high-quality resources and support to help you achieve your academic goals. Join us and take your learning experience to the next level!</p>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <video autoplay muted loop class="background-video">
+            <source src="ved1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="about-content">
+            <h2>About Us</h2>
+            <p>Virtual Reality Technology is the future of immersive experiences, allowing users to interact with environments in ways never before imagined.</p>
+            <a href="#" class="visit-btn">Visit Now</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>VR Consultation and Setup</li>
+            <li>Immersive Gaming Experiences</li>
+            <li>Custom VR Solutions</li>
+        </ul>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <h2>Our Products</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="so8.avif" alt="VR Black">
+                <h3>VR-Black</h3>
+                <p>$20.5</p>
+                <table>
+                    <tr><td>Resolution:</td><td>1080p</td></tr>
+                    <tr><td>Weight:</td><td>300g</td></tr>
+                    <tr><td>Battery Life:</td><td>6 hours</td></tr>
+                </table>
+                <a href="checkout.html" class="buy-btn">Buy Now</a>
+            </div>
+            <div class="product">
+                <img src="so7.avif" alt="VR Black 2">
+                <h3>VR-Black 2</h3>
+                <p>$23</p>
+                <table>
+                    <tr><td>Resolution:</td><td>1440p</td></tr>
+                    <tr><td>Weight:</td><td>320g</td></tr>
+                    <tr><td>Battery Life:</td><td>8 hours</td></tr>
+                </table>
+                <a href="checkout.html" class="buy-btn">Buy Now</a>
+            </div>
+            <div class="product">
+                <img src="so6.avif" alt="VR White">
+                <h3>VR-White</h3>
+                <p>$23.5</p>
+                <table>
+                    <tr><td>Resolution:</td><td>1440p</td></tr>
+                    <tr><td>Weight:</td><td>310g</td></tr>
+                    <tr><td>Battery Life:</td><td>7 hours</td></tr>
+                </table>
+                <a href="checkout.html" class="buy-btn">Buy Now</a>
+
+            </div>
+            <div class="product">
+                <img src="so9.avif" alt="VR Black 3">
+                <h3>VR-Black 3</h3>
+                <p>$27.5</p>
+                <table>
+                    <tr><td>Resolution:</td><td>4K</td></tr>
+                    <tr><td>Weight:</td><td>300g</td></tr>
+                    <tr><td>Battery Life:</td><td>9.5 hours</td></tr>
+                </table>
+                <a href="checkout.html" class="buy-btn">Buy Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games">
+        <h2>Games</h2>
+        <p>Experience the future of gaming with our VR platform, bringing you into an immersive and interactive world.</p>
+        <div class="games-content">
+            <img src="so10.avif" alt="VR Games" class="games-image">
+            <img src="so11.png" alt="Second Image" class="small-image">
+        </div>
+        <p>★★★★★</p>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog">
+        <div class="container">
+            <h2>From Our Blog</h2>
+            <div class="blog-cards">
+                <article class="blog-card">
+                    <img src="so17.svg" alt="Blog Image 1">
+                    <div class="card-content">
+                        <h3>Blog Post Title 1</h3>
+                        <p>Discover insights on the latest trends in our field and stay informed about tips and best practices.</p>
+                        <a href="#" class="read-more">Read More &rarr;</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="so15.svg" alt="Blog Image 2">
+                    <div class="card-content">
+                        <h3>Blog Post Title 2</h3>
+                        <p>Gain knowledge on how to improve your skills and advance in your career with our expert advice.</p>
+                        <a href="#" class="read-more">Read More &rarr;</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="so16.svg" alt="Blog Image 3">
+                    <div class="card-content">
+                        <h3>Blog Post Title 3</h3>
+                        <p>Explore new perspectives and strategies to help you succeed and stay ahead of the curve.</p>
+                        <a href="#" class="read-more">Read More &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Newsletter Section -->
+    <section id="subscribe">
+        <div class="container">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to receive our latest updates and offers.</p>
+            <form action="#" class="subscribe-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="subscribe-button">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" style="background-color: #f0f4ff; padding: 50px 0;">
+        <div class="container">
+            <h2 style="text-align: center; font-family: 'Arial', sans-serif; color: #6a5acd;">آراء عملائنا</h2>
+            <div class="row" style="display: flex; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+                <div class="col-md-4" style="margin-bottom: 30px; text-align: center;">
+                    <div style="border: none; border-radius: 12px; padding: 30px; background-color: #ffffff; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); transition: transform 0.3s;">
+                        <p style="font-size: 18px; color: #555;">"المنتجات ممتازة، وأنا راضٍ تمامًا عن جودة الخدمة."</p>
+                        <h5 style="margin-top: 15px; color: #333;">أحمد علي</h5>
+                        <p style="color: #777;">عميل سعيد</p>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-bottom: 30px; text-align: center;">
+                    <div style="border: none; border-radius: 12px; padding: 30px; background-color: #ffffff; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); transition: transform 0.3s;">
+                        <p style="font-size: 18px; color: #555;">"أحببت تجربة التسوق في هذا المتجر، سأعود مرة أخرى."</p>
+                        <h5 style="margin-top: 15px; color: #333;">سارة محمد</h5>
+                        <p style="color: #777;">عميلة مخلصة</p>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-bottom: 30px; text-align: center;">
+                    <div style="border: none; border-radius: 12px; padding: 30px; background-color: #ffffff; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); transition: transform 0.3s;">
+                        <p style="font-size: 18px; color: #555;">"الخدمة سريعة والدعم الفني ممتاز!"</p>
+                        <h5 style="margin-top: 15px; color: #333;">محمد يوسف</h5>
+                        <p style="color: #777;">عميل راضٍ</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div style="margin-top: 50px; text-align: center;">
+                <h3 style="color: #6a5acd;">شاركنا رأيك</h3>
+                <div style="border: 1px solid #ddd; border-radius: 12px; padding: 30px; background-color: #ffffff; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); display: inline-block;">
+                    <form>
+                        <textarea placeholder="اكتب رأيك هنا" rows="4" style="width: 100%; border: 1px solid #ccc; border-radius: 8px; padding: 10px; font-size: 14px; margin-bottom: 15px;"></textarea>
+                        <br>
+                        <input type="text" placeholder="الاسم" style="width: 100%; border: 1px solid #ccc; border-radius: 8px; padding: 10px; font-size: 14px; margin-bottom: 15px;">
+                        <br>
+                        <button type="submit" style="background-color: #6a5acd; color: #fff; border: none; border-radius: 8px; padding: 10px 15px; cursor: pointer; font-size: 16px;">إرسال</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        #testimonials .col-md-4:hover div {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 0px rgba(106, 92, 205, 0.3);
+        }
+    </style>
+    
+    <!-- Call to Action -->
+    <section id="cta">
+        <h2>What Are You Waiting For, Try Now</h2>
+        <div class="cta-content">
+            <div class="image">
+                <img src="so13.png" alt="Try VR" class="cta-image">
+            </div>
+            <div class="text">
+                <p>Virtual Reality Technology allows you to immerse yourself in a 3D world.</p>
+                <a href="login.html" class="visit-btn">Try Now</a>
+            </div>
+        </div>
+        
+    </section>
+
+    <script>
+        document.querySelectorAll('.visit-btn, .buy-btn').forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                alert('Button Clicked: ' + this.textContent);
+            });
+        });
+    </script>
+
+</body>
+</html>

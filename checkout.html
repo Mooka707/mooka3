@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        /* تنسيق الصفحة العامة */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* تنسيق الهيدر */
+        header {
+            background-color: #5A67D8;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 1.8em;
+        }
+
+        /* تنسيق حاوية الخروج */
+        .checkout-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* تنسيق عنوان القسم */
+        .section-title {
+            display: flex;
+            align-items: center;
+            font-size: 1.4em;
+            color: #5A67D8;
+            margin-bottom: 15px;
+        }
+
+        /* أيقونات القسم */
+        .section-title img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        /* تنسيق الحقول والقسم */
+        .form-section {
+            background-color: #f4f6f8;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: border-color 0.3s;
+        }
+
+        /* تصميم الفوكس */
+        input[type="text"]:focus, input[type="number"]:focus, select:focus {
+            border-color: #5A67D8;
+        }
+
+        /* تنسيق الزر */
+        .button {
+            background-color: #5A67D8;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .button:hover {
+            background-color: #434e9f;
+        }
+
+        /* تنسيق زر العودة */
+        .home-button {
+            background-color: #3537a5;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            width: 30%;
+            display: block;
+            margin: 0 auto 20px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .home-button:hover {
+            background-color: #4a5568;
+        }
+
+        /* المجموع الكلي */
+        .total-cost {
+            font-weight: bold;
+            color: #5A67D8;
+            text-align: center;
+            font-size: 1.8em;
+            margin-top: 15px;
+        }
+        
+
+    </style>
+</head>
+<body>
+
+<!-- الهيدر -->
+<header>
+    Checkout
+</header>
+
+<!-- زر العودة للصفحة الرئيسية -->
+<button class="home-button" onclick="window.location.href='index.html'">Home</button>
+
+<!-- حاوية الخروج -->
+<div class="checkout-container">
+    <!-- تفاصيل المنتج -->
+    <div class="form-section">
+        <h2 class="section-title"><img src="product-icon.png" alt="Product Icon">Order Details</h2>
+        <form id="order-form">
+            <label for="product-name">Product Name</label>
+            <input type="text" id="product-name" name="product-name" value="Product XYZ" readonly>
+
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+
+            <label for="price">Price per Item ($)</label>
+            <input type="text" id="price" name="price" value="50" readonly>
+        </form>
+    </div>
+
+    <!-- معلومات الشحن -->
+    <div class="form-section">
+        <h2 class="section-title"><img src="shipping-icon.png" alt="Shipping Icon">Shipping Information</h2>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="John Doe" required>
+
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" placeholder="123 Main St, City, Country" required>
+
+        <label for="postal-code">phone</label>
+        <input type="text" id="postal-code" name="postal-code" placeholder="12345" required>
+    </div>
+
+    <!-- طريقة الدفع -->
+    <h2>Select Payment Method</h2>
+    <label>
+        <input type="radio" name="paymentMethod" value="creditCard"> Credit Card
+    </label>
+    <label>
+        <input type="radio" name="paymentMethod" value="fawry"> Fawry
+    </label>
+    <label>
+        <input type="radio" name="paymentMethod" value="vodafoneCash"> Vodafone Cash
+    </label>
+    
+    <!-- زر الانتقال إلى صفحة الدفع -->
+    <button onclick="selectPaymentMethod()">Proceed to Payment</button>
+</div>
+
+<script>
+    function selectPaymentMethod() {
+        // الحصول على خيار الدفع المحدد
+        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
+        
+        if (paymentMethod) {
+            // تخزين طريقة الدفع في localStorage
+            localStorage.setItem('selectedPaymentMethod', paymentMethod.value);
+            
+            // توجيه العميل إلى صفحة الدفع
+            window.location.href = 'payment.html';
+        } else {
+            alert('Please select a payment method.');
+        }
+    }
+</script>
+
+    <!-- المجموع الكلي -->
+    <div class="total-cost">
+        Total Cost: $<span id="total-cost">50</span>
+    </div>
+
+   
+
+
+<script>
+    const quantityInput = document.getElementById('quantity');
+    const priceInput = document.getElementById('price');
+    const totalCostElement = document.getElementById('total-cost');
+    const paymentMethodSelect = document.getElementById('payment-method');
+    const cardNumberInput = document.getElementById('card-number');
+
+    // تحديث المجموع الكلي
+    function updateTotalCost() {
+        const quantity = parseInt(quantityInput.value);
+        const price = parseFloat(priceInput.value);
+        const totalCost = quantity * price;
+        totalCostElement.textContent = totalCost.toFixed(2);
+    }
+
+    quantityInput.addEventListener('input', updateTotalCost);
+
+    // إظهار أو إخفاء حقل رقم البطاقة بناءً على طريقة الدفع
+    paymentMethodSelect.addEventListener('change', () => {
+        if (paymentMethodSelect.value === 'credit-card') {
+            cardNumberInput.style.display = 'block';
+        } else {
+            cardNumberInput.style.display = 'none';
+        }
+    });
+
+    // تأكيد الطلب
+    function confirmOrder() {
+        alert('Order confirmed! Thank you for your purchase.');
+        // هنا يمكن إضافة كود إرسال البيانات للسيرفر
+    }
+
+    // إخفاء حقل رقم البطاقة إذا كانت طريقة الدفع غير "Credit Card"
+    cardNumberInput.style.display = paymentMethodSelect.value === 'credit-card' ? 'block' : 'none';
+</script>
+
+</body>
+</html>

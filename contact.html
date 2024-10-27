@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+    <!-- Navigation Buttons Section -->
+    <div class="nav-buttons">
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="signup.html" class="nav-btn">Sign Up</a>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Contact Us</h1>
+        <p>We’d love to hear from you! Fill out the form below to get in touch.</p>
+    </header>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form">
+        <form action="#" method="POST">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your Name">
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="Your Email">
+            
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
+            
+            <button type="submit">Send Message</button>
+        </form>
+        <div id="confirmation" style="display:none;">
+            <p>Thank you for your message! We’ll get back to you soon.</p>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <h2>Our Location</h2>
+        <div id="map" style="width:100%; height:300px;"></div>
+    </section>
+
+    <!-- Google Maps API & Geolocation Script -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=de5d7f560964dbf062365db5b40927ffc52314c1"></script>
+    <script>
+        function initMap() {
+            // التحقق من إمكانية الوصول إلى الموقع الجغرافي
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    
+                    // إنشاء الخريطة بموقع المستخدم
+                    const map = new google.maps.Map(document.getElementById("map"), {
+                        center: userLocation,
+                        zoom: 15
+                    });
+                    
+                    // إضافة علامة موقع المستخدم على الخريطة
+                    new google.maps.Marker({
+                        position: userLocation,
+                        map: map,
+                        title: "You are here!"
+                    });
+                }, function() {
+                    alert("Could not get your location.");
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        // استدعاء الدالة عند تحميل الصفحة
+        window.onload = initMap;
+    </script>
+
+</body>
+</html>

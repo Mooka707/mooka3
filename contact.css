@@ -1,0 +1,266 @@
+/* إعدادات عامة */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #1c1c1e; /* خلفية داكنة */
+    color: #e1e1e1; /* لون النص الفاتح */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+/* الأساسيات */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #eaeaea; /* لون الخلفية */
+    color: #333; /* لون النص */
+}
+
+/* حاوية رئيسية */
+.container {
+    width: 100%;
+    max-width: 1200px; /* الحد الأقصى للعرض */
+    margin: 0 auto; /* توسيط الحاوية */
+    padding: 20px;
+}
+
+/* عناصر الرأس */
+header {
+    background-color: #6C5CE7;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+/* العناوين */
+h1, h2, h3, h4 {
+    margin-bottom: 15px;
+}
+
+/* الأزرار */
+button {
+    background-color: #6C5CE7;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #5a4fcf;
+    transform: scale(1.05);
+}
+
+/* العناصر القابلة للتعديل */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%; /* عرض كامل */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* استعلامات الوسائط */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* تقليل الحشوة على الشاشات الصغيرة */
+    }
+
+    h1 {
+        font-size: 1.5rem; /* حجم خط أقل على الشاشات الصغيرة */
+    }
+
+    button {
+        width: 100%; /* أزرار بعرض كامل على الشاشات الصغيرة */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.3rem; /* حجم خط أقل */
+    }
+
+    button {
+        padding: 8px; /* تقليل الحشوة في الأزرار */
+    }
+}
+
+/* العنوان */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #f0f0f5;
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+}
+
+header p {
+    color: #bbb;
+}
+
+/* قسم نموذج التواصل */
+.contact-form {
+    background: rgba(40, 40, 40, 0.9); /* لون داكن نصف شفاف */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5); /* ظل مضيء */
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    margin-bottom: 20px;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.contact-form label {
+    font-weight: bold;
+    color: #00ffcc;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #666;
+    border-radius: 4px;
+    outline: none;
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 0 5px rgba(0, 255, 204, 0.4); /* ظل مضيء صغير */
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #00ffcc;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.5); /* زيادة الإضاءة */
+}
+
+/* زر الإرسال */
+.contact-form button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background: linear-gradient(45deg, #00ffcc, #0099ff);
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+}
+
+.contact-form button:hover {
+    background: linear-gradient(45deg, #0099ff, #00ffcc);
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.8); /* تأثير إضاءة أقوى */
+}
+
+/* الرسالة التأكيدية */
+#confirmation {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    color: #28a745;
+    background-color: #e9f8f0;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+}
+
+/* قسم الموقع */
+.map-section {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5); /* ظل مضيء */
+}
+/* تنسيق أزرار التنقل */
+.nav-buttons {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+}
+
+.nav-btn {
+    background: #6C5CE7; /* اللون الأساسي للأزرار */
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 10px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: #4b3ba9; /* لون مغاير عند تمرير الفأرة */
+}
+
+.map-section h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #f0f0f5;
+}
+
+/* حركة fadeIn */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* تحسين التوافق على الأجهزة الصغيرة */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .contact-form,
+    .map-section {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    .contact-form button {
+        font-size: 0.9em;
+    }
+}
+
+/* تحسين التوافق على الأجهزة اللوحية */
+@media (min-width: 600px) and (max-width: 768px) {
+    header h1 {
+        font-size: 2.2em;
+    }
+
+    .contact-form,
+    .map-section {
+        width: 90%;
+    }
+}
